@@ -115,10 +115,7 @@ app.post('/register',(req,res)=>{
             res.redirect('/');
         }
     })
-
-
 });
-
 app.listen(3030,() => {
   console.log("App is listening on Port 3030")
 });
