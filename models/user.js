@@ -5,7 +5,7 @@ mongoose.connect("mongodb://localhost:27017/F_D_I",{
     useNewUrlParser:true,
     useUnifiedTopology:true
 })
-
+console.log("Database connected");
 const userSchema = mongoose.Schema({
     username:{
         type:String,
@@ -32,7 +32,8 @@ const userSchema = mongoose.Schema({
     },
     alter_mobnumber:{
         type:Number,
-        unique:true
+        unique:true,
+        required:true
     },
     gender:{
         type:String,
@@ -42,7 +43,7 @@ const userSchema = mongoose.Schema({
         type:String,
         required:true
     }
-})
+});
 
 userSchema.pre("save", function(next) {
     if(!this.isModified("password")) {

@@ -39,7 +39,7 @@ confirm_password.onkeyup = validatePassword;
 				<form name="register" action="/register" method="POST">
 					<h3 style="font-family:title;">New User</h3>
 					<div class="form-wrapper">
-						<input type="text" placeholder="UserName" class="form-control"required>
+						<input type="text" name="username"id="username"placeholder="UserName" class="form-control"required="required">
 						<i class="zmdi zmdi-account"></i>
 											</div>
 					<div class="form-wrapper">
@@ -47,18 +47,18 @@ confirm_password.onkeyup = validatePassword;
 						<i class="zmdi zmdi-phone"></i>
 					</div>
 					<div class="form-wrapper">
-						<input type="tel"  id="alternativephone" class="form-control" placeholder="Alternative Mobile No" name="phone" pattern="[0-9]{10}">
+						<input type="tel"  id="alternativephone" class="form-control" placeholder="Alternative Mobile No" name="phonenumber" pattern="[0-9]{10}">
 						<i class="zmdi zmdi-phone"></i>
 					</div>
 					
 					<div class="form-wrapper">
-						<input type="text" placeholder="Email Address" class="form-control"required>
+						<input type="text" name="email"id="mailid" placeholder="Email Address" class="form-control"required="required">
 						<i class="zmdi zmdi-email"></i>
 						
 
 					</div>
 					<div class="form-wrapper">
-						<select name="" id="" class="form-control"required>
+						<select  id="" name="gender"class="form-control"required="required">
 							<option value="" disabled selected>Gender</option>
 							<option value="male">Male</option>
 							<option value="femal">Female</option>
@@ -67,15 +67,15 @@ confirm_password.onkeyup = validatePassword;
 						<i class="zmdi zmdi-caret-down" style="font-size: 17px"></i>
 					</div>
 					<div class="form-wrapper">
-						<input type="password" id="password" placeholder="Password" class="form-control"required>
+						<input type="password" name="password"id="password" placeholder="Password" class="form-control"required="required">
 						<i class="zmdi zmdi-lock"></i>
 					</div>
 					<div class="form-wrapper">
-						<input type="password" id="confirm_password" placeholder="Confirm Password" class="form-control"required>
+						<input type="password" name="confirmpassword"id="confirm_password" placeholder="Confirm Password" class="form-control"required="required">
 						<i class="zmdi zmdi-lock"></i>
 					</div>
 					<div class="form-wrapper">
-						<input type="text" placeholder="Address" class="form-control"required>
+						<input type="text" name="address"placeholder="Address" class="form-control"required="required">
 						<i class="zmdi zmdi-pin"></i>
 					</div>
 					<div>

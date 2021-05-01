@@ -94,15 +94,18 @@ app.get('/register',sessionChecker,(req,res) =>{
     res.render('register');
     res.sendFile(__dirname + "/register");
 })
+
 app.post('/register',(req,res)=>{
+  console.log(req.body);
     var user=new User({
         username:req.body.username,
         email:req.body.email,
         password:req.body.password,
         confirmpassword:req.body.confirmpassword,
-        mob_no:req.body.mob_no,
-        alter_mobno:req.body.alter_mobno,
-        address:req.body.address
+        mob_number:req.body.phone,
+        alter_mobnumber:req.body.phonenumber,
+        address:req.body.address,
+        gender:req.body.gender
     })
     user.save((err,docs) => {
         if(err){
@@ -112,7 +115,7 @@ app.post('/register',(req,res)=>{
         else{
             // console.log(docs)
             req.session.user = docs;
-            res.redirect('/');
+            res.redirect('/home');
         }
     })
 });
