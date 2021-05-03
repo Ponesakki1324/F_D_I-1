@@ -5,6 +5,8 @@ var session = require("express-session");
 var morgan = require("morgan");
 var User = require("./models/user");
 const { get } = require("mongoose");
+var passport = require("passport");
+var passportLocal = require("passport-local");
 
 var app = express();
 // set morgan to log info about our requests for development use.
@@ -83,9 +85,17 @@ app.get('/login',sessionChecker,(req,res) =>{
     }
   });
 
+  app.post("/login", passport.authenticate("local", {
+    successRedirect: "/home",
+    failureRedirect: "/login"
+}), function (req, res) {
 
+});
 app.get('/profile',(req,res) =>{
     res.render('profile');
+});
+app.get('/logout',(req,res) =>{
+res.render('logout');
 });
 app.get('/forgot',(req,res) =>{
     res.render('forgot');
@@ -115,9 +125,13 @@ app.post('/register',(req,res)=>{
         else{
             // console.log(docs)
             req.session.user = docs;
-            res.redirect('/home');
+            res.redirect('/login');
         }
     })
+  //    passport.authenticate("local")(
+  //      req, res, function () {
+  //     res.render("/home");
+  // });
 });
 app.listen(3030,() => {
   console.log("App is listening on Port 3030")
